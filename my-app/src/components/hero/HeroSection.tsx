@@ -1,9 +1,17 @@
-import React from 'react'
+
 
 const HeroSection = () => {
   return (
-    <div>HeroSection</div>
-  )
-}
+    <div>
+      <p> NEW SEASON / SMART TECH </p>
+      <p> Technology that fits │ │ your everyday. </p>
 
-export default HeroSection
+      <p>
+        │ Discover phones, audio, wearables │ │ & accessories built for your
+        lifestyle.
+      </p>
+    </div>
+  );
+};
+
+export default HeroSection;
