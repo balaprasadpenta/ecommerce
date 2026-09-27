@@ -5,14 +5,10 @@ import { IconHeart } from "@tabler/icons-react";
 import { IconSearch } from "@tabler/icons-react";
 import { Button } from "../../../@/components/ui/button";
 import { IconMenu2 } from "@tabler/icons-react";
-
+import SearchBar from "./SearchBar";
+import ProductGrid from "../products/ProductGrid";
 
 const Navbar = () => {
- 
-
-  const handleSearchItems = () => {
-    setActive(true);
-  };
   return (
     <div className="flex justify-between items-center py-2 px-6 gap-x-6 bg-gray-50 w-full">
       <div>
@@ -20,15 +16,17 @@ const Navbar = () => {
       </div>
 
       <div className="hidden sm:block">
-        <input
+        <SearchBar />
+        <ProductGrid />
+        {/* <input
           type="text"
           placeholder="search products..."
           className="bg-gray-100 max-w-xl min-w-xs h-8 rounded-full border-2 px-4 py-1  "
-        />
+        /> */}
       </div>
 
       <div className="sm:hidden flex flex-row justify-between items-center">
-        <Button onClick={handleSearchItems} variant="ghost" className={`active(true): `}>
+        <Button variant="ghost" className={`active(true): `}>
           <IconSearch stroke={2} className="size-5" />
         </Button>
         <Button>

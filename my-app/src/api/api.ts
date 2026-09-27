@@ -1,12 +1,28 @@
-// services/api.ts
+export interface Product {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  thumbnail: string;
+  category: string;
+}
 
-const BASE_URL = "https://dummyjson.com";
+interface ProductResponse {
+  products: Product[];
+  total: number;
+  skip: number;
+  limit: number;
+}
 
-export const getProducts = async () => {
-  const response = await fetch(`${BASE_URL}/products`);
+export const searchProducts = async (
+  searchTerm: string,
+): Promise<ProductResponse> => {
+  const response = await fetch(
+    `https://dummyjson.com/products/search?q=${encodeURIComponent(searchTerm)}`,
+  );
 
   if (!response.ok) {
-    throw new Error("Failed to fetch products");
+    throw new Error("failed to fetch products");
   }
 
   return response.json();
