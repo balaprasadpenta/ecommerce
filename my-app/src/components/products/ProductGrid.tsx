@@ -9,7 +9,7 @@ const ProductGrid = () => {
     useProducts(searchTerm);
 
   if (!searchTerm) {
-    return <p>Search products</p>;
+    return <p className="">Search products</p>;
   }
 
   if (isPending) {
@@ -20,12 +20,20 @@ const ProductGrid = () => {
     return <p>{error.message}</p>;
   }
 
+  const filteredProducts = data.products.filter((product) =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
+  if (filteredProducts.length === 0) {
+    return <p>No products found</p>;
+  }
+
   return (
     <div>
       {isFetching && <p>Updating...</p>}
 
       <div>
-        {data.products.map((product) => (
+        {filteredProducts.map((product) => (
           <div key={product.id}>
             <img
               src={product.thumbnail}

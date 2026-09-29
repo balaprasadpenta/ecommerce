@@ -18,11 +18,6 @@ const Navbar = () => {
       <div className="hidden sm:block">
         <SearchBar />
         <ProductGrid />
-        {/* <input
-          type="text"
-          placeholder="search products..."
-          className="bg-gray-100 max-w-xl min-w-xs h-8 rounded-full border-2 px-4 py-1  "
-        /> */}
       </div>
 
       <div className="sm:hidden flex flex-row justify-between items-center">
