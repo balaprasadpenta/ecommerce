@@ -15,7 +15,7 @@ const SearchBar = () => {
         dispatch(setSearchTerm(e.target.value));
       }}
       placeholder="search Products..."
-      className="border px-2 py-2 rounded-lg"
+      className="border px-2 py-1 rounded-full w-full min-w-xs placeholder:text-center "
     />
   );
 };

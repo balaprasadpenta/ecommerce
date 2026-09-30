@@ -9,7 +9,7 @@ const ProductGrid = () => {
     useProducts(searchTerm);
 
   if (!searchTerm) {
-    return <p className="">Search products</p>;
+    return null;
   }
 
   if (isPending) {

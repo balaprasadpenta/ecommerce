@@ -15,7 +15,7 @@ const Navbar = () => {
         <img src={logo} alt="website logo" className="size-12 shrink-0" />
       </div>
 
-      <div className="hidden sm:block">
+      <div className="hidden sm:block max-w-full mx-auto ">
         <SearchBar />
         <ProductGrid />
       </div>
