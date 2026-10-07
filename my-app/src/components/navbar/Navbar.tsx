@@ -7,17 +7,19 @@ import { Button } from "../../../@/components/ui/button";
 import { IconMenu2 } from "@tabler/icons-react";
 import SearchBar from "./SearchBar";
 import ProductGrid from "../products/ProductGrid";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store/store";
 
 const Navbar = () => {
+  const searchTerm = useSelector((state: RootState) => state.search.searchTerm);
   return (
-    <div className="flex justify-between items-center py-2 px-6 gap-x-6 bg-gray-50 w-full">
+    <div className="relative flex justify-between items-center py-2 px-6 gap-x-6 bg-gray-50 w-full">
       <div>
         <img src={logo} alt="website logo" className="size-12 shrink-0" />
       </div>
 
-      <div className="hidden sm:block max-w-full mx-auto ">
+      <div className="hidden sm:block max-w-fullw-full mx-auto items-center ">
         <SearchBar />
-        <ProductGrid />
       </div>
 
       <div className="sm:hidden flex flex-row justify-between items-center">
@@ -40,6 +42,12 @@ const Navbar = () => {
           <IconUser stroke={2} />
         </span>
       </div>
+
+      {searchTerm && (
+        <div className="absolute z-50 mx-auto left-12 -translate-x-12 overflow-y-auto w-full top-full  rounded-2xl border bg-white px-8 py-6 shadow-lg ">
+          <ProductGrid />
+        </div>
+      )}
     </div>
   );
 };

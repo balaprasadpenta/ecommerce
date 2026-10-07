@@ -8,15 +8,18 @@ const SearchBar = () => {
   const searchTerm = useSelector((state: RootState) => state.search.searchTerm);
 
   return (
-    <input
-      type="text"
-      value={searchTerm}
-      onChange={(e) => {
-        dispatch(setSearchTerm(e.target.value));
-      }}
-      placeholder="search Products..."
-      className="border px-2 py-1 rounded-full w-full min-w-xs placeholder:text-center "
-    />
+    <div className="relative w-full ">
+      <input
+        type="text"
+        value={searchTerm}
+        onChange={(e) => {
+          dispatch(setSearchTerm(e.target.value));
+        }}
+        placeholder="search Products..."
+        className="border px-2 py-1 rounded-full w-full min-w-xs placeholder:text-center relative "
+      />
+    
+    </div>
   );
 };
 
